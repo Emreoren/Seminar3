@@ -4,7 +4,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import model.IPostCreate;
-import model.PostType;
 
 public abstract class RegisteredUser extends User implements IPostCreate {
 	// variables, getters, setters, both constructors, toString + other functions(if necessary)
@@ -25,20 +24,20 @@ public abstract class RegisteredUser extends User implements IPostCreate {
 		}
 		else
 		{
-			username = "No username";
+			username = "No username";}
+		
 		}
-	}
+	//}^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\\]).{8,32}$
 	
-	//TODO regex for password is from https://www.ocpsoft.org/tutorials/regular-expressions/password-regular-expression/
+	// regex for password is from https://www.ocpsoft.org/tutorials/regular-expressions/password-regular-expression/
 	public void setPassword(String inputPassword) {
-		if(inputPassword != null && inputPassword.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\\]).{8,32}$"))
+		if(inputPassword != null && inputPassword.matches("[A-Za-z0-9?*#.:;]{6,20}"))
 		{
 			try {
 				MessageDigest md = MessageDigest.getInstance("MD5");
 				md.update(inputPassword.getBytes());
 				password = new String(md.digest());
 			} catch (NoSuchAlgorithmException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				password = "No password";
 			}

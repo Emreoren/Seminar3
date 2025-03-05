@@ -3,6 +3,7 @@ package model.users;
 import java.util.ArrayList;
 
 import model.Page;
+import model.Post;
 import model.PostType;
 
 public class BusinessUser extends RegisteredUser{
@@ -48,11 +49,34 @@ public class BusinessUser extends RegisteredUser{
 	}
 	
 	
-	
+	//params[0] text message for post
 
 	@Override
 	public void createPost(PostType postType, String... params) throws Exception {
 		// TODO Auto-generated method stub
+		if(postType == null || params == null)
+		{
+			throw new Exception("Params should be not null");
+		}
+		
+		if(params.length < 2)
+		{
+			throw new Exception("There is no msg and page as input params");
+		}
+		
+		Post newPost = new Post(params[0]);
+		
+		for (Page tempP : pages)
+		{
+			for( int i = 1; i < pages.size(); i++)
+			{
+				if(tempP.getTitle().equals(params[i]))
+				{
+					tempP.getPosts().add(newPost);
+				}
+			}
+		}
+		
 		
 	}
 
