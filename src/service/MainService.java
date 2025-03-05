@@ -21,7 +21,7 @@ public class MainService {
 		User u1 = new User();//Guest User
 		User u2 = new User();//Guest User
 		PrivateUser u3 = new PrivateUser("emre.oren", "123qwe..", "Emre", "Oren");
-		BusinessUser u4 = new BusinessUser("my.linkedin", "ohmygod123--", "My linkedin");
+		BusinessUser u4 = new BusinessUser("my.linkedin", "ohmygod123", "Mylinkedin");
 		
 		allUsers.addAll(Arrays.asList(u1, u2, u3, u4));
 		
@@ -31,11 +31,11 @@ public class MainService {
 		}
 		
 		try {
-			u3.createPost(PostType.privatePost, "I want to go home!");
-			u3.createPost(PostType.publicPost, "I like JAVA!");
+			u3.createPost(PostType.privatePost, "I want to go sleep!");
+			u3.createPost(PostType.publicPost, "I love JAVA!");
 			
-			System.out.println("Karina private posts: " + u3.getPrivatePosts());
-			System.out.println("Karina public posts: " + u3.getPublicPosts());
+			System.out.println("Emre private posts: " + u3.getPrivatePosts());
+			System.out.println("Emre public posts: " + u3.getPublicPosts());
 			
 			
 			
