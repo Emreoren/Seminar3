@@ -45,6 +45,7 @@ public class Page {
 	}
 	
 	//No setters for arraylist because they are initialized already at the start
+	
 	public Page() {
 		setTitle("Test");
 		setDescription("Page");
@@ -58,8 +59,6 @@ public class Page {
 	public String toString() {
 		return title + " (" + description + ")";
 	}
-	
-	
 	
 	
 	
